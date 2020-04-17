@@ -1,0 +1,50 @@
+/**Variables**/
+/**Code**/
+.search {
+  text-align: center;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.searched {
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 750px) {
+  .logo {
+    width: 100%;
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 749px) {
+  .logo {
+    position: absolute;
+    top: -100px;
+    left: -150px;
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .bar {
+    position: absolute;
+    left: -150px;
+    width: 300px;
+  }
+}
+
+.logout_btn {
+  padding: 5px;
+}
+
+.login_btn {
+  padding: 10%;
+}
+
+/*# sourceMappingURL=search.css.map */

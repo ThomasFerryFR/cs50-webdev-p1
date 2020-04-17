@@ -1,0 +1,38 @@
+{% extends "layout_main.html"%}
+
+{%block page_title %}Main page{%endblock%}
+
+{%block page_specific_stylesheets %}
+{%endblock%}
+
+	{%block content_logged_in %}
+
+		<div class="container, search">
+			<div class="row">
+				<div class="col-3"></div>
+				<div class="col-6">
+					<image src={{ url_for('static', filename='images/logo.png') }} class="logo">
+				</div>
+				<div class="col-3"></div>
+			</div>
+			<div class="row">
+				<div class="col-3"></div>
+				<div class="col-6">
+					<form action="{{ url_for('search') }}" method="post">
+						<div class="form-group, bar">
+				  			<input type="text" class="form-control" id="search" name="search" placeholder="Isbn, title, author, ...">
+				  			<select class="form-control" id="type" name="type" placeholder="Search by...">
+				  				<option>isbn</option>
+				  				<option>Author</option>
+				  				<option>Title</option>
+				  				<option>Year</option>
+				  			</select>
+						</div>
+					<button type="submit" class="btn btn-primary">Search</button>
+					</form>
+				</div>
+				<div class="col-3"></div>
+			</div>
+		</div>
+
+	{%endblock%}

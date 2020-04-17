@@ -1,0 +1,55 @@
+/**Variables**/
+
+$text_color: darkslategray;
+$search_width_min: 750px;
+$search_width_max: 749px;
+
+/**Code**/
+
+.search {
+    text-align: center;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.searched {
+    text-align: center;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    
+    @media screen and (min-width:$search_width_min){
+        width:100%;
+        padding: 5px;
+    }
+    @media screen and (max-width:$search_width_max){
+        position: absolute;
+        top: -100px;
+        left: -150px;
+        width:300px;
+    }
+}
+
+.bar {
+    @media screen and (max-width:$search_width_max){
+        position: absolute;
+        left: -150px;
+        width:300px;
+    }
+}
+
+
+.logout_btn{
+    padding: 5px;
+}
+
+.login_btn{
+    padding: 10%;
+}

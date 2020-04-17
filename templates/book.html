@@ -1,0 +1,141 @@
+{% extends "layout_main.html"%}
+
+{%block page_title %}Book page{%endblock%}
+
+{%block page_specific_stylesheets %}
+{%endblock%}
+
+{% block content_logged_in %}
+
+
+
+	<div class="container", style="position: absolute; top:10%; left:50%; transform: translate(-50%, 0%)">
+
+	<!-- ############## Search bar ############## -->
+		<div class="row">
+			<div class="col-3">
+				<image src={{ url_for('static', filename='images/logo.png') }} style="width:100%">
+			</div>
+			<div class="col-9">
+				<form action="{{ url_for('search') }}" method="post">
+					<div class="form-group, bar">
+						<div class="col-12">
+		  					<input type="text" class="form-control" id="search" name="search" placeholder="Isbn, title, author, ...">	  				
+			  				<select class="form-control" id="type" name="type" placeholder="Search by...">
+			  					<option>isbn</option>
+			  					<option>Author</option>
+			  					<option>Title</option>
+			  					<option>Year</option>
+			  				</select>
+						<button type="submit" class="btn btn-primary">Search</button>
+			  			</div>
+			  		</div>
+				</form>
+			</div>
+		</div>
+
+
+
+	<!-- ############## Book details ############## -->
+
+		<div class="row" style="margin-top:5%">
+			<div class="col-3">
+			</div>
+			<div class="col-9">
+				<div class="card">
+			      <div class="card-body">
+
+			      	<div class="row">
+			      		<div class="col-3"></div>
+			      		<div class="col-6">
+			      			<h5 class="card-title" style="text-align:center">{{book.1}}</h5>
+			      			<p class="card-text" style="text-align:center">{{book.2}}, {{book.3}}</p>
+			      			<p class="card-text" style="text-align:center"><i>isbn: {{book.0}}</i></p>
+			      		</div>
+			      		<div class="col-3"></div>
+			        </div>
+
+			        <div class="row" style="margin-top:2%">
+				        <div class="col-6">
+				        	<p class="card-text" style="text-align:center">Bookli rating: {{bookli_rating}} / 5</p>
+				    	</div>
+				    	<div class="col-6">
+				    		<p class="card-text" style="text-align:center">Goodreads rating: {{book.6}} / 5</p>
+				    	</div>
+				    </div>
+
+				    <div class="row">
+			    		<div class="col-6">
+			    			<p class="card-text" style="text-align:center">Number of ratings on Bookli: {{bookli_count}}</p>
+			        	</div>
+			        	<div class="col-6">
+			        		<p class="card-text" style="text-align:center">Number of ratings on Goodreads: {{book.7}}</p>
+			        	</div>
+			        </div>
+			      </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" style="margin-top:5%">
+
+			<div class="col-3"></div>
+			<div class="col-6">
+				{% if reviewed %}
+					<p>Your review:</p>
+					<p>{{ user_review }}</p>
+					<p>{{ user_rating }} / 5</p>
+				{% else %}
+						<form action="{{ url_for('review') }}" method="post">
+							<div class="form-group, bar">
+								<div class="col-12">
+				  					<input type="text" class="form-control" id="review" name="review" placeholder="What did you think about the book?">	  				
+					  				<select class="form-control" id="rating" name="rating" placeholder="How would you rate it out of 5?">
+					  					<option>1</option>
+					  					<option>2</option>
+					  					<option>3</option>
+					  					<option>4</option>
+					  					<option>5</option>
+					  				</select>
+								<button type="submit" class="btn btn-primary" name="isbn" value={{book.0}}>Review</button>
+					  			</div>
+					  		</div>
+						</form>
+				{% endif %}
+			</div>
+			<div class="col-3"></div>
+		</div>
+
+
+		<div class="row" style="margin-top:5%">
+			<div class="col-3"></div>
+			<div class="col-9" style="text-align:center">
+				<h2 style="text-align:center"> Reviews </h2>
+			</div>
+		</div>
+
+
+			{% for review in reviews %}
+
+			<div class="row" style="margin-top:5%">
+				<div class="col-3">
+				</div>
+				<div class="col-9">
+					<div class="card">
+				      <div class="card-body">
+				        <h5 class="card-title">{{review.1}}</h5>
+				        <p class="card-text">{{review.4}}</p>
+				        <p class="card-text">{{review.3}}/5</p>
+				      </div>
+					</div>
+				</div>
+			</div>
+
+			{% endfor %}
+		</div>
+	</div>
+
+
+{% endblock %}
+
+
