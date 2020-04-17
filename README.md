@@ -13,7 +13,7 @@ application.py => main flask application that routes everything
 
 books.csv => list of books given by the course
 
-import.py => python script importing the info from the book.csv file and the goodreads api into the database (Note: due to an misunderstanding of the necessary info from the goodreads api, there are additional lines to the script fixing the error made in the first place)
+import.py => python script importing the info from the book.csv file and the goodreads api into the database (Note: due to a misunderstanding of the necessary info from the goodreads api, there are additional lines to the script fixing the error made in the first place)
 
 
 ## Folders
